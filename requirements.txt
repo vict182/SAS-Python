@@ -1,0 +1,5 @@
+behave~=1.2.6
+selenium
+ipython~=8.5.0
+oracledb~=1.1.1
+cx_Oracle
