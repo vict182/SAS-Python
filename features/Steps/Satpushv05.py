@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 import time
 from IPython.display import display
 from hamcrest import assert_that, equal_to, is_not
+from selenium.webdriver.chrome.options import Options
 
 @given(u'La linea "{linea}" se encuentre existente en la tabla sas_dm.ar_abt_campaign')
 def step_impl(context, linea):
@@ -39,10 +40,11 @@ def step_impl(context):
 
 @when(u'Se ejecute la campaña SATPUSH_Prueba_Lote_spv05_Automation')
 def step_impl(context):
-    browser = webdriver.Chrome('C:\\Users\\usuario\\Desktop\\TESTING AUTOMATI JAVA/chromedriver.exe')
+    chrome_profile = Options()
+    chrome_profile.add_argument("--headless")
+    browser = webdriver.Chrome('C:\\Users\\usuario\\Desktop\\TESTING AUTOMATI JAVA/chromedriver.exe', chrome_options=chrome_profile)
     browser.maximize_window()
-    browser.get(
-        "http://sascmt03.claro.amx:7980/SASLogon/login?service=http%3A%2F%2Fsascmt03.claro.amx%3A7980%2FSASCIStudio%2Fj_spring_cas_security_check")
+    browser.get("http://sascmt03.claro.amx:7980/SASLogon/login?service=http%3A%2F%2Fsascmt03.claro.amx%3A7980%2FSASCIStudio%2Fj_spring_cas_security_check")
     time.sleep(1)
 
     clicksasusuario = browser.find_element(By.ID, 'username')
@@ -81,6 +83,12 @@ def step_impl(context):
     ejecutarcampañaSI = browser.find_element(By.XPATH, '//*[@id="__dialog0-customButton0"]')
     ejecutarcampañaSI.click()
     time.sleep(15)
+    cerrarmensajecampaña = browser.find_element(By.ID, '__dialog1-closeButton')
+    cerrarmensajecampaña.click()
+    time.sleep(5)
+    cerrarcampaña = browser.find_element(By.ID, '__page5-closeButton')
+    cerrarcampaña.click()
+    time.sleep(2)
 
 
 @then(u'Se envía un mensaje del tipo Sat push y se inserta un registro en la tabla AR_AUX.EXECUTED_HISTORICO_DYNAMO')

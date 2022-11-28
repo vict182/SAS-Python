@@ -1,5 +1,10 @@
-behave~=1.2.6
 selenium
 ipython~=8.5.0
 oracledb~=1.1.1
 cx_Oracle
+behave==1.2.6
+requests==2.25.1
+PyHamCrest==2.0.3
+allure-behave==2.9.43
+allure-python-commons==2.9.43
+webdriver-manager==3.5.4

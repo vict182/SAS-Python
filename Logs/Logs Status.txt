@@ -1,0 +1,3 @@
+JLR>  ID TSC/TC        NOMBRE TSC/TC                                                                                                                         PASS   FAIL
+JLR>  PRYSAS-601   TC_003_Ejecución de campaña SATPUSH_Prueba_Lote_spv05 con más de un código de envío.                                                       1      0
+JLR>  TC PASADOS: 1    TC FALLADOS: 0    TC TOTALES: 1
